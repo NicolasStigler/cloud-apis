@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8083";  // URL de la API orquestadora
+const API_URL = "http://localhost:8004";  // URL de la API orquestadora
 
 // Obtener información del usuario y balance
 async function getUser() {

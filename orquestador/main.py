@@ -4,9 +4,9 @@ import httpx
 app = FastAPI()
 
 # URLs de las APIs
-USER_API_URL = "http://localhost:8080"
-BET_API_URL = "http://localhost:8081"
-LOGS_API_URL = "http://localhost:8082"
+USER_API_URL = "http://localhost:8001"
+BET_API_URL = "http://localhost:8002"
+LOGS_API_URL = "http://localhost:8003"
 
 @app.get("/")
 def read_root():
