@@ -61,6 +61,97 @@ app.post('/register', async (req, res) => {
   res.json(result.rows[0]);
 });
 
+// Endpoint para buscar usuarios
+/**
+ * @swagger
+ * /usuarios:
+ *   get:
+ *     description: Obtener en orden descendente los usuarios con mayor balance
+ *     responses:
+ *       200:
+ *         description: Leaderboard
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: integer
+ *                   nombre:
+ *                     type: string
+ *                   email:
+ *                     type: string
+ *                   balance:
+ *                     type: number
+ *                   fecha_registro:
+ *                     type: string
+ *                     format: date-time
+ */
+app.get('/leaderboard', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM usuarios ORDER BY balance DESC');
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error retrieving users');
+  }
+});
+
+// Endpoint para buscar un usuario por nombre
+/**
+ * @swagger
+ * /usuarios/{nombre}:
+ *   get:
+ *     description: Buscar un usuario por su nombre
+ *     parameters:
+ *       - in: path
+ *         name: nombre
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: Nombre del usuario
+ *     responses:
+ *       200:
+ *         description: Usuario encontrado
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: integer
+ *                 nombre:
+ *                   type: string
+ *                 email:
+ *                   type: string
+ *                 balance:
+ *                   type: number
+ *                 fecha_registro:
+ *                   type: string
+ *                   format: date-time
+ *       404:
+ *         description: Usuario no encontrado
+ */
+app.get('/usuarios/:nombre', async (req, res) => {
+  const { nombre } = req.params; // Obtenemos el nombre desde la URL
+  try {
+    const result = await pool.query(
+      'SELECT * FROM usuarios WHERE nombre = $1',
+      [nombre]
+    );
+    if (result.rows.length > 0) {
+      res.json(result.rows[0]); // Si se encuentra el usuario, lo enviamos en formato JSON
+    } else {
+      res.status(404).send('Usuario no encontrado');
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error al buscar el usuario');
+  }
+});
+
 app.listen(3000, () => {
   console.log('User API listening on port 3000');
 });
