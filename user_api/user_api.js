@@ -8,10 +8,10 @@ app.use(express.json());
 
 const pool = new Pool({
   user: 'postgres',
-  host: 'localhost',
+  host: 'localhost', // ip de MV BD
   database: 'casino',
-  //password: 'GNU+Casino',
-  port: 5432,
+  password: 'GNU+Casino',
+  port: 8000,
 });
 
 // Swagger definition
@@ -23,7 +23,7 @@ const swaggerOptions = {
       version: '1.0.0',
       description: 'API for User and Account Management',
     },
-    servers: [{ url: 'http://localhost:3000' }],
+    servers: [{ url: 'http://localhost:8001' }],
   },
   apis: ['./user_api.js'],
 };
@@ -152,7 +152,6 @@ app.get('/usuarios/:nombre', async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log('User API listening on port 3000');
+app.listen(8001, () => {
+  console.log('User API listening on port 8001');
 });
-
