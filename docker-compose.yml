@@ -19,8 +19,8 @@ services:
       - "8003:8003"
     restart: always
 
-  orchestrator_api:
-    build: ./orchestrator_api
+  orquestador:
+    build: ./orquestador
     ports:
       - "8004:8084"
     depends_on:
