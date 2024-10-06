@@ -10,7 +10,7 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost', // ip de MV BD
   database: 'casino',
-  password: 'GNU+Casino',
+  password: 'GNUpluscasino',
   port: 8000,
 });
 
