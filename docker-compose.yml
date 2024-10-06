@@ -1,23 +1,24 @@
-version: '3.8'
+version: '3'
 
 services:
   user_api:
     build: ./user_api
     ports:
       - "8001:8001"
-    environment:
-      - DATABASE_URL=postgresql://user:password@db:5432/casino
+    restart: always
 
   bet_api:
     build: ./bet_api
     ports:
       - "8002:8002"
+    restart: always
 
   logs_api:
     build: ./logs_api
     ports:
       - "8003:8003"
-  
+    restart: always
+
   orchestrator_api:
     build: ./orchestrator_api
     ports:
@@ -26,16 +27,4 @@ services:
       - user_api
       - bet_api
       - logs_api
-
-  db:
-    image: postgres:13
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: GNUpluscasino
-      POSTGRES_DB: casino
-    volumes:
-      - db_data:/var/lib/postgresql/data
-
-volumes:
-  db_data:
-
+    restart: always
