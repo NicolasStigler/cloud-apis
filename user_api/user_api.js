@@ -155,3 +155,58 @@ app.get('/usuarios/:nombre', async (req, res) => {
 app.listen(8001, () => {
   console.log('User API listening on port 8001');
 });
+
+////////////////transactions///////////////////
+
+/**
+ * @swagger
+ * /transactions:
+ *   post:
+ *     description: Check your transactions
+ *     parameters:
+ *       - in: body
+ *         name: transactions
+ *         schema:
+ *           type: object
+ *           properties:
+ *             transaccion_id:
+ *               type: int
+ *             tipo:
+ *               type: string
+ *             monto:
+ *               type: int
+ *     responses:
+ *       200:
+ *         description: Transactions found
+ */
+app.get('/usuarios/:nombre/transacciones', async (req, res) => {
+  const { nombre } = req.params; // Obtenemos el nombre del usuario de la URL
+  try {
+    // Primero obtenemos el usuario por nombre
+    const userResult = await pool.query(
+      'SELECT id FROM usuarios WHERE nombre = $1',
+      [nombre]
+    );
+
+    if (userResult.rows.length === 0) {
+      return res.status(404).send('Usuario no encontrado');
+    }
+
+    const usuario_id = userResult.rows[0].id;
+
+    // Luego obtenemos todas las transacciones del usuario
+    const transaccionesResult = await pool.query(
+      'SELECT * FROM transacciones WHERE usuario_id = $1',
+      [usuario_id]
+    );
+
+    if (transaccionesResult.rows.length > 0) {
+      res.json(transaccionesResult.rows); // Devolvemos las transacciones en formato JSON
+    } else {
+      res.status(404).send('No se encontraron transacciones para este usuario');
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error al obtener las transacciones');
+  }
+});
