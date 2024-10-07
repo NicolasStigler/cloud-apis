@@ -1,0 +1,171 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://media.revistagq.com/photos/6273edebab8c0fea708155d0/16:9/w_2560%2Cc_limit/GettyImages-1314656208.jpg'); /* Cambia esto por la URL de tu imagen */
+    background-size: cover; /* Hace que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+h1 {
+    font-size: 7rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+}
+
+main {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Imagen centrada debajo del título */
+.center-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;  /* Espacio entre la imagen y la descripción */
+}
+
+label {
+    font-size: 1rem;
+}
+
+input, select {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #fd746c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff5a4a;
+}
+
+.info-box {
+    margin-top: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 5px;
+    color: #333;
+    font-size: 1rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo general de los botones */
+button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Botón de iniciar sesión */
+button.iniciar-sesion {
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+}
+
+/* Botón de registrarse */
+button.registrarse {
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+}
+
+/* Efecto hover para los botones */
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto de "clic" para los botones */
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo de la lista de navegación */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+/* Estilo para los enlaces de "Iniciar Sesión" y "Registrarse" */
+nav ul li a {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Enlace de Iniciar Sesión */
+nav ul li a.iniciar-sesion {
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+}
+
+/* Enlace de Registrarse */
+nav ul li a.registrarse {
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+}
+
+/* Efecto hover para los enlaces */
+nav ul li a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto de clic para los enlaces */
+nav ul li a:active {
+    transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casino Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Casino Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Obtener Información del Usuario -->
+        <section id="user-section">
+            <h2>Consultar Usuario</h2>
+            <label for="user-id">ID de Usuario:</label>
+            <input type="number" id="user-id" placeholder="Ingrese el ID del usuario">
+            <button onclick="getUser()">Consultar Usuario</button>
+            <div id="user-info" class="info-box"></div>
+        </section>
+
+        <!-- Realizar una Apuesta -->
+        <section id="bet-section">
+            <h2>Registrar Apuesta</h2>
+            <label for="bet-user-id">ID de Usuario:</label>
+            <input type="number" id="bet-user-id" placeholder="Ingrese el ID del usuario">
+            <label for="amount">Monto de la apuesta:</label>
+            <input type="number" id="amount" placeholder="Ingrese el monto de la apuesta">
+            <label for="game-type">Juego:</label>
+            <select id="game-type">
+                <option value="slots">Slots</option>
+                <option value="roulette">Roulette</option>
+                <option value="blackjack">Blackjack</option>
+            </select>
+            <button onclick="placeBet()">Registrar Apuesta</button>
+            <div id="bet-result" class="info-box"></div>
+        </section>
+
+        <!-- Obtener Logs -->
+        <section id="logs-section">
+            <h2>Consultar Logs de Usuario</h2>
+            <label for="log-user-id">ID de Usuario:</label>
+            <input type="number" id="log-user-id" placeholder="Ingrese el ID del usuario">
+            <button onclick="getLogs()">Consultar Logs</button>
+            <div id="logs" class="info-box"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
